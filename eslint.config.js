@@ -18,14 +18,14 @@ export default [
       },
     },
     plugins: {
-      "simple-import-sort": simpleImportSort,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-     
+      'simple-import-sort': simpleImportSort,
+
     },
     rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
