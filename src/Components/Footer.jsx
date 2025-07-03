@@ -3,7 +3,7 @@ function Footer() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const hours = currentDate.getHours();
-    console.log(hours);
+   
 
 
     return (

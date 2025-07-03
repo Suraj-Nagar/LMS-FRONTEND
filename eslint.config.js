@@ -26,6 +26,7 @@ export default [
     rules: {
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
+      "react/prop-types":"off",
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
