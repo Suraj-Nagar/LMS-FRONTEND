@@ -17,7 +17,7 @@ function HomeLayout({ children }) {
 
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
-        drawerSide[0].style.width = "250px";
+        drawerSide[0].style.width = "300px";
 
     }
 
@@ -30,7 +30,7 @@ function HomeLayout({ children }) {
 
     }
 
-    function handleLogout(e){
+    function handleLogout(e) {
         e.preventDefault();
 
         // const res=await dispatch(logout());
@@ -43,7 +43,7 @@ function HomeLayout({ children }) {
             <div className="min-h-[90vh]">
                 <div className="drawer absolute left-0 z-50 w-fit">
                     <input type="checkbox" className="drawer-toggle" id="my-drawer" />
-                    <div className="drawer">
+                    <div className="drawer-content">
                         <label htmlFor="my-drawer" className="cursor-pointer relative">
                             <FiMenu
                                 onClick={changeWidth}
@@ -55,10 +55,9 @@ function HomeLayout({ children }) {
 
                     </div>
                     <div className="drawer-side">
-                        <label htmlFor='my-drawer' className='drawer-overlay'>
-
+                        <label htmlFor="my-drawer" className="drawer-overlay">
                         </label>
-                        <ul className="menu p-4 sm:w-auto text-base-content relative">
+                        <ul className="menu p-4  h-[100%] sm:w-80 bg-base-200 text-base-content relative">
                             <li className='w-fit absolute right-2 z-50'>
                                 <button onClick={hideDrawer}>
                                     <AiFillCloseCircle size={24} />
@@ -88,31 +87,31 @@ function HomeLayout({ children }) {
 
                             </li>
                             {!isLoggedIn && (
-                                <li className=' bottom-4 w-[90% ]'>
-                                <div className="w-full flex items-center justify-center gap-4">
-                                    <Link to="/Login" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
-                                        Login
-                                    </Link>
-                                    <Link to="/Login" className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
-                                        Sign Up
-                                    </Link>
-                                </div>
-                                </li>   
+                                <li className='absolute bottom-4 w-[90%    ]'>
+                                    <div className="w-full flex items-center justify-center ">
+                                        <Link to="/Login" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
+                                            Login
+                                        </Link>
+                                        <Link to="/Login" className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
+                                            Sign Up
+                                        </Link>
+                                    </div>
+                                </li>
 
                             )}
 
 
-                             {isLoggedIn && (
-                                <li className=' bottom-4 w-[90% ]'>
-                                <div className="w-full flex items-center justify-center gap-4">
-                                    <Link to="/user/profile" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
-                                        Profile
-                                    </Link>
-                                    <Link onClick={handleLogout} className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
-                                        Logout
-                                    </Link>
-                                </div>
-                                </li>   
+                            {isLoggedIn && (
+                                <li className=' bottom-4 w-[90%]'>
+                                    <div className="w-full flex items-center justify-center gap-4">
+                                        <Link to="/user/profile" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
+                                            Profile
+                                        </Link>
+                                        <Link onClick={handleLogout} className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
+                                            Logout
+                                        </Link>
+                                    </div>
+                                </li>
 
                             )}
 
