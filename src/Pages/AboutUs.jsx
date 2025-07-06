@@ -1,6 +1,10 @@
+import CarouselSlide from "../Components/CarouselSlide";
 import HomeLayout from "../Layouts/HomeLayout";
-import mainimage from "../assets/Images/image.png";
-function AboutUs() {
+import mainimage from "../assets/Images/AboutImage.jpg";
+import {celebrities} from "../Constants/CelebrityData";
+function AboutUs() { 
+
+    
     return (
         <>
             <HomeLayout>
@@ -25,69 +29,18 @@ function AboutUs() {
                                     filter: "drop-shadow(0px 10px 10px rgb(0,0,0));"
                                 }}
                                 alt="about mainimage"
-                                className="drop-shadow-2xl h-full w-1/2"
+                                className="drop-shadow-2xl h-full w-full"
                                 src={mainimage}
                             />
                         </div>
                     </div>
 
                     <div className="carousel w-1/2  m-auto my-16">
-
-                        <div id="slide1" className="carousel-item relative w-full">
-                            <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                                    className="w-40 h-40 rounded-full border-2 border-gray-400" />
-                                    <h3 className="text-2xl font-semibold text-center">Nelson Mandela</h3>
-                                    <p className="text-xl text-gray-200 text-center">{"Education is the most powerfull tool. You can use to change the world."}</p>
-                                <div className="absolute w-[50%]   top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide4" className="btn btn-circle">❮</a> 
-                                    <a href="#slide2" className="btn btn-circle">❯</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div id="slide2" className="carousel-item relative w-full">
-                            <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                                    className="w-40 h-40 rounded-full border-2 border-gray-400" />
-                                      <h3 className="text-2xl font-semibold text-center">Nelson Mandela2</h3>
-                                    <p className="text-xl text-gray-200 text-center">{"Education is the most powerfull tool. You can use to change the world."}</p>
-                                <div className="absolute w-[50%] top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide1" className="btn btn-circle">❮</a>
-                                    <a href="#slide3" className="btn btn-circle">❯</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="slide3" className="carousel-item relative w-full">
-                            <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                                    className="w-40 h-40  rounded-full border-2 border-gray-400" />
-                                      <h3 className="text-2xl font-semibold text-center">Nelson Mandela3</h3>
-                                    <p className="text-xl text-gray-200 text-center">{"Education is the most powerfull tool. You can use to change the world."}</p>
-                                <div className="absolute  w-[50%]  top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide2" className="btn btn-circle">❮</a>
-                                    <a href="#slide4" className="btn btn-circle">❯</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="slide4" className="carousel-item relative w-full">
-                            <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                                    className="w-40 h-40  rounded-full border-2 border-gray-400" />
-                                      <h3 className="text-2xl font-semibold text-center">Nelson Mandela4</h3>
-                                    <p className="text-xl text-gray-200 text-center">{"Education is the most powerfull tool. You can use to change the world."}</p>
-                                <div className="absolute  w-[50%]  top-1/2 flex -translate-y-1/2 transform justify-between">
-                                    <a href="#slide4" className="btn btn-circle">❮</a>
-                                    <a href="#slide1" className="btn btn-circle">❯</a>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        {celebrities && celebrities.map(celebrity => (<CarouselSlide 
+                                                                        {...celebrity} 
+                                                                        key={celebrity.slideNumber} 
+                                                                        totalSlides={celebrities.length}
+                        />))}
                     </div>
                 </div>
 
