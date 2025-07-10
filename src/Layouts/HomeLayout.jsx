@@ -89,10 +89,10 @@ function HomeLayout({ children }) {
                             {!isLoggedIn && (
                                 <li className='absolute bottom-4 w-[90%    ]'>
                                     <div className="w-full flex items-center justify-center ">
-                                        <Link to="/Login" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
+                                        <Link to="/lgin" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
                                             Login
                                         </Link>
-                                        <Link to="/Login" className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
+                                        <Link to="/signup" className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
                                             Sign Up
                                         </Link>
                                     </div>
