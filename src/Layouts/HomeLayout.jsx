@@ -4,6 +4,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../Redux/Slices/AuthSlice';
 
 function HomeLayout({ children }) {
     const dispatch = useDispatch();
@@ -30,12 +31,12 @@ function HomeLayout({ children }) {
 
     }
 
-    function handleLogout(e) {
+   async function handleLogout(e) {
         e.preventDefault();
 
-        // const res=await dispatch(logout());
-        // if(res?.payload?.success)
-        navigate("/");
+        const res=await dispatch(logout());
+        if(res?.payload?.success);
+         navigate("/");
     }
 
     return (
@@ -57,7 +58,7 @@ function HomeLayout({ children }) {
                     <div className="drawer-side">
                         <label htmlFor="my-drawer" className="drawer-overlay">
                         </label>
-                        <ul className="menu p-4  h-[100%] sm:w-80 bg-base-200 text-base-content relative">
+                        <ul className="menu p-4 h-[100%] sm:w-full bg-base-200 text-base-content relative">
                             <li className='w-fit absolute right-2 z-50'>
                                 <button onClick={hideDrawer}>
                                     <AiFillCloseCircle size={24} />
@@ -87,9 +88,9 @@ function HomeLayout({ children }) {
 
                             </li>
                             {!isLoggedIn && (
-                                <li className='absolute bottom-4 w-[90%    ]'>
+                                <li className='absolute bottom-4 w-64'>
                                     <div className="w-full flex items-center justify-center ">
-                                        <Link to="/lgin" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
+                                        <Link to="/login" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
                                             Login
                                         </Link>
                                         <Link to="/signup" className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-1 font-semibold rounded-md w-full text-center">
@@ -102,7 +103,7 @@ function HomeLayout({ children }) {
 
 
                             {isLoggedIn && (
-                                <li className=' bottom-4 w-[90%]'>
+                                <li className='absolute bottom-4 w-64'>
                                     <div className="w-full flex items-center justify-center gap-4">
                                         <Link to="/user/profile" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 font-semibold rounded-md w-full text-center">
                                             Profile
