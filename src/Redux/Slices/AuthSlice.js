@@ -10,7 +10,7 @@ const initialState = {
 export const login = createAsyncThunk("/auth/login", async (data) => {
     try {
         const res = axiosInstance.post("user/login", data);
-        toast.promise(res, {
+        toast.promise(res, { 
             loading: "Wait! Authentication in progress",
             success: (data) => data?.data?.message,
             error: "Failed to Login"
