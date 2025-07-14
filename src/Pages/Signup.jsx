@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { isValidElement, useState } from "react";
 import HomeLayout from "../Layouts/HomeLayout";
 import { BsPersonCircle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,8 @@ import { toast } from "react-hot-toast";
 import { SiEmlakjet } from "react-icons/si";
 import avatar from "daisyui/components/avatar";
 import { createAccount } from "../Redux/Slices/AuthSlice";
+import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
+import { sign } from "chart.js/helpers";
 
 function Signup() {
 
@@ -56,12 +58,12 @@ function Signup() {
             toast.error("Name should be atleast of 5 character")
         }
 
-        if (!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        if (!isEmail(signupData.email)) {
             toast.error("Invalid email id");
             return;
         }
 
-        if (signupData.password.length < 5 || !signupData.password.match(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)) {
+        if (!isValidPassword(signupData.password)) {
             toast.error("password should be at least 8 character and mixture of uppercase and lowercase letters and numbers and special character")
         }
 
