@@ -10,6 +10,7 @@ import Login from './Pages/Login';
 import CourseList from './Pages/Course/CourseLIst';
 import Contact from './Pages/Contact';
 import Denied from './Pages/Denied';
+import CourseDescription from './Pages/Course/CourseDescription';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/courses" element={<CourseList />}></Route>
+        <Route path="/course/description" element={<CourseDescription/>}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/denied" element={<Denied />}></Route>
         <Route path='*' element={<NotFound />}></Route>
