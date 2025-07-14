@@ -9,21 +9,23 @@ import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import CourseList from './Pages/Course/CourseLIst';
 import Contact from './Pages/Contact';
+import Denied from './Pages/Denied';
 
 function App() {
-  return (  
+  return (
     <>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/signup" element={<Signup/>}></Route>
-        <Route path="/courses" element={<CourseList/>}></Route>
-         <Route path="/contact" element={<Contact/>}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
-        
-      </Routes> 
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/courses" element={<CourseList />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/denied" element={<Denied />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
+
+      </Routes>
     </>
   )
 }
