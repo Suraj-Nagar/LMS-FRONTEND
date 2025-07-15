@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useSelector } from "react-redux";
@@ -7,9 +6,6 @@ function CourseDescription() {
     const {state}= useLocation();
     const {role,data}=useSelector((state)=>state.auth);  
 
-    useEffect(() => {
-        console.log(locator);
-    }, [])
     return (
         <HomeLayout>
             <div className="min-h-[90vh] pt-12 flex flex-col items-center justify-center text-white ">
