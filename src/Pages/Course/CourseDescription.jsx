@@ -1,10 +1,17 @@
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useSelector } from "react-redux";
 
 function CourseDescription() {
     const {state}= useLocation();
+       const navigate = useNavigate();
     const {role,data}=useSelector((state)=>state.auth);  
+    
+    if (!state) {
+        // Redirect to course list if no state (direct URL entry)
+        navigate("/courses");
+        return null;
+    }
 
     return (
         <HomeLayout>
@@ -24,7 +31,7 @@ function CourseDescription() {
                                     <span className="text-yellow-500 font-semibold">
                                         total lectures :{" "}
                                     </span>
-                                    {state?.numberOfLectures}
+                                    {state?.numbersOfLectures}
                                 </p>
 
                                     <p className="font-semibold">
