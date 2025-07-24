@@ -1,4 +1,4 @@
-import { useLocation,useNavigate } from "react-router-dom";
+import { Navigate, useLocation,useNavigate } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useSelector } from "react-redux";
 
@@ -50,7 +50,7 @@ function CourseDescription() {
                                         watch lectures
                                     </button>
                                 ):(
-                                    <button className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
+                                    <button onClick={()=>navigate("/checkout")} className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
                                         Subscribe
                                     </button>
                                 )

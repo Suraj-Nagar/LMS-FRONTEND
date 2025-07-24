@@ -1,5 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import { createAccount } from "./AuthSlice"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import toast from "react-hot-toast"
 import axiosInstance from "../../Helpers/axiosInstance"
 
@@ -25,6 +24,7 @@ export const getRazorpayId = createAsyncThunk("/razorpay/getId", async () => {
 export const purchaseCourseBundle = createAsyncThunk("/purchaseCourse", async () => {
     try {
         const response = await axiosInstance.post("/payments/subscribe");
+        console.log(response);
         return response.data;
     } catch (error) {
         toast.error(error?.response?.data?.message);
@@ -67,7 +67,7 @@ export const getPaymentRecord = createAsyncThunk("/payments/record", async (data
 
 export const cancelCourseBundle = createAsyncThunk("/payments/cancel", async (data) => {
     try {
-        const response = axiosInstance.get("/payments/unsubscribe=100",);
+        const response = axiosInstance.post("/payments/unsubscribe=100",);
         toast.promise(response, {
             loading: "Unsubscribing the bundle",
             success: (data) => {
