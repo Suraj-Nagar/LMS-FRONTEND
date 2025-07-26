@@ -24,7 +24,7 @@ export const getRazorpayId = createAsyncThunk("/razorpay/getId", async () => {
 export const purchaseCourseBundle = createAsyncThunk("/purchaseCourse", async () => {
     try {
         const response = await axiosInstance.post("/payments/subscribe");
-        console.log(response);
+        console.log(response.data);
         return response.data;
     } catch (error) {
         toast.error(error?.response?.data?.message);
@@ -106,9 +106,9 @@ const razorpaySlice = createSlice({
 
             .addCase(getPaymentRecord.fulfilled, (state, action) => {
                 toast.success(action?.payload?.message)
-                state.allPayments= action?.payload?.allPayments;
-                state.finalMonths=action?.payload?.finalMonths;
-                state.monthlySalesRecord=action?.payload?.monthlySalesRecord;
+                state.allPayments = action?.payload?.allPayments;
+                state.finalMonths = action?.payload?.finalMonths;
+                state.monthlySalesRecord = action?.payload?.monthlySalesRecord;
             })
     }
 })

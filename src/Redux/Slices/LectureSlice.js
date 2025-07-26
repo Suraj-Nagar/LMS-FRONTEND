@@ -13,7 +13,7 @@ export const getCourseLectures=createAsyncThunk("/course/lecture/get",async (cid
             loading:"Fetching course details",
             success:"Lecture Fetched successfully",
             error:"Failed to load their lectures"
-
+ 
         });
         return (await response).data;
     } catch (error) {

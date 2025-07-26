@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
-import { getRazorpayId, purchaseCourseBundle, verifyUserPayment } from "../../Redux/Slices/RazorPaySlice";
+import { getRazorpayId, purchaseCourseBundle, verifyUserPayment } from "../../Redux/Slices/RazorpaySlice";
 import { BiRupee } from "react-icons/bi";
 
 function Checkout() {
@@ -44,10 +44,10 @@ function Checkout() {
 
                 toast.success("Payment Successfull");
 
-                const res=await dispatch(verifyUserPayment(paymentDetails));
+                const res = await dispatch(verifyUserPayment(paymentDetails));
                 res?.payload?.success ? navigate("/checkout/success") : navigate("/checkout/fail");
-            }   
-        }   
+            }
+        }
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
 
@@ -61,7 +61,12 @@ function Checkout() {
     useEffect(() => {
         load()
     }, []);
-
+    useEffect(() => {
+        console.log("🧾 subscription_id:", subscription_id);
+        if (!subscription_id) {
+            toast.error("No subscription ID received");
+        }
+    }, [subscription_id]);
 
     return (
         <HomeLayout>
@@ -73,12 +78,12 @@ function Checkout() {
                     <h1 className="bg-yellow-500 absolute top-0 w-full text-center p-4 text-2xl font-bold rounded-tl-lg"></h1>
                     <div className="px-6 space-y-5 text-center">
                         <p className="text-[17px]">
-                            {/* This purchase will allow you to access all available course of our platform for {' '} */}
+                            This purchase will allow you to access all available course of our platform for {' '}
                             <span className="text-yellow-500 font-bold">
                                 <br />
                                 rom rom ji
                             </span> {' '}
-                            {/* All the existing and new launched courses will be a also available */}
+                            All the existing and new launched courses will be a also available
                         </p>
                         <p className="flex items-center justify-center gap-1 text-2xl font-bold text-yellow-500">
                             <BiRupee /> <span>499</span> only
@@ -87,7 +92,7 @@ function Checkout() {
                             <p>100% refund on cancellation</p>
                             <p>* Terms and conditions applied*</p>
                         </div>
-                        <button type="submit"  className="bg-yellow-500 hover:bg-yellow-100 transition-all ease-in-out durations-300 absolute bottom-0 w-full left-0 font-bold text-xl rounded-bl-lg rounded-br-lg py-2">Buy now</button>
+                        <button type="submit" className="bg-yellow-500 hover:bg-yellow-100 transition-all ease-in-out durations-300 absolute bottom-0 w-full left-0 font-bold text-xl rounded-bl-lg rounded-br-lg py-2">Buy now</button>
                     </div>
                 </div>
             </form>

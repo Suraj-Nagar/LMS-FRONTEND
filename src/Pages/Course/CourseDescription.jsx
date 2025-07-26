@@ -1,12 +1,12 @@
-import { Navigate, useLocation,useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useSelector } from "react-redux";
 
 function CourseDescription() {
-    const {state}= useLocation();
-       const navigate = useNavigate();
-    const {role,data}=useSelector((state)=>state.auth);  
-    
+    const { state } = useLocation();
+    const navigate = useNavigate();
+    const { role, data } = useSelector((state) => state.auth);
+
     if (!state) {
         // Redirect to course list if no state (direct URL entry)
         navigate("/courses");
@@ -34,26 +34,24 @@ function CourseDescription() {
                                     {state?.numbersOfLectures}
                                 </p>
 
-                                    <p className="font-semibold">
+                                <p className="font-semibold">
 
                                     <span className="text-yellow-500 font-semibold">
-                                       Instructor :{" "}
+                                        Instructor :{" "}
                                     </span>
                                     {state?.createdBy}
                                 </p>
 
                             </div>
-                            {   
-
-                                role==="ADMIN" || data?.subscription?.status === "Active" ?(
-                                    <button className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
-                                        watch lectures
-                                    </button>
-                                ):(
-                                    <button onClick={()=>navigate("/checkout")} className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
-                                        Subscribe
-                                    </button>
-                                )
+                            {role === "ADMIN" || data?.subscription?.status === "active" ? (
+                                <button onClick={()=> navigate("/course/displaylectures",{state:{...state}})} className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
+                                    watch lectures
+                                </button>
+                            ) : (
+                                <button onClick={() => navigate("/checkout")} className="bg-yellow-600 text-xl rounded-md px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out">
+                                    Subscribe
+                                </button>
+                            )
                             }
 
                         </div>
@@ -61,7 +59,7 @@ function CourseDescription() {
                             <h1 className="text-3xl font-bold text-yellow-400 text-center mb-5">
                                 {state?.title}
                             </h1>
-                            <p className="text-yellow-500"> 
+                            <p className="text-yellow-500">
                                 course description
                             </p>
 
