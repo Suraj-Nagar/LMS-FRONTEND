@@ -3,17 +3,17 @@ import HomeLayout from "../../Layouts/HomeLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCourseLecture, getCourseLectures } from "../../Redux/Slices/LectureSlice";
-import button from "daisyui/components/button";
+
 
 function Displaylectures() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { state } = useLocation();
     const { lectures } = useSelector((state) => state.lecture);
-    const { role } = useSelector((state) => state.auth);
+    const {role }= useSelector((state) => state.auth);
     const [currentVideo, setCurrentVideo] = useState(0);
-  async function onLectureDelete(courseId,lectureId){
-        await dispatch(deleteCourseLecture({courseId:courseId,lectureId:lectureId}));
+    async function onLectureDelete(courseId, lectureId) {
+        await dispatch(deleteCourseLecture({ courseId: courseId, lectureId: lectureId }));
         await dispatch(getCourseLectures(courseId))
     }
 
@@ -30,15 +30,16 @@ function Displaylectures() {
                     Course Name:{state?.title}
                 </div>
 
-               {lectures && lectures.length>0 && <div className="flex justify-center gap-10 w-full">
+                {(lectures && lectures.length > 0) ? (<div className="flex justify-around  w-full">
                     <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] ">
                         <video
                             className="object-fill rounded-tl-lg rounded-tr-lg w-full "
-                            src={lectures && lectures[currentVideo]?.lecture?.secure_url}>
+                            src={lectures && lectures[currentVideo]?.lecture?.secure_url}
                             controls
                             disablePictureInPicture
                             muted
-                            controlList="nodownload"
+                            controlsList="nodownload"
+                        >
 
                         </video>
                         <div className="">
@@ -58,12 +59,12 @@ function Displaylectures() {
                     </div>
 
                     <ul className="w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
-                        <li className="font-semibold text-xl text-yellow-500 flex items-center justify-center">
+                        <li className="font-semibold text-xl text-yellow-500 flex items-center justify-around">
                             <p>
                                 Lectures list
                             </p>
-                            {role === "ADMIN" && (
-                                <button onClick={()=>navigate("/course/addlecture",{state:{...state}})} className="btn-primary px-2 py-1 rounded-md text-sm">Add new lecture</button>
+                           { role === "ADMIN" && (
+                            <button onClick={() => navigate("/course/addlecture", { state: { ...state } })} className=" btn btn-primary px-2 py-1 rounded-md text-lg">Add new lecture</button>
                             )}
                         </li>
                         {lectures && lectures.map((lecture, idx) => {
@@ -75,16 +76,24 @@ function Displaylectures() {
                                         </span>
                                         {lecture?.title}
                                     </p>
+
                                     {role === "ADMIN" && (
-                                        <button onClick={()=>onLectureDelete(state?._id, lecture?._id)} className="btn-danger px-2 py-1 rounded-md text-sm">
-                                            delete lecture
+                                        <button onClick={() => onLectureDelete(state?._id, lecture?._id)} className="btn btn-secondary py-0.5 px-1 rounded-md text-sm">
+                                            Delete lecture
                                         </button>
                                     )}
                                 </li>
                             )
-                        })}
+                        })
+                        }
                     </ul>
-                </div>}
+                </div>) : (
+                    role === "ADMIN" && (
+                        <button onClick={() => navigate("/course/addlecture", { state: { ...state } })} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm">
+                            Add new lecture
+                        </button>
+                    )
+                )}
             </div>
         </HomeLayout>
     );

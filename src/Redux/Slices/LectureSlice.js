@@ -8,7 +8,7 @@ const initialState={
 
 export const getCourseLectures=createAsyncThunk("/course/lecture/get",async (cid)=>{
     try {
-        const response=axiosInstance.get(`/courses/${cid}`);
+        const response=axiosInstance.get(`/courses/${cid}/get`);
         toast.promise(response,{
             loading:"Fetching course details",
             success:"Lecture Fetched successfully",
@@ -25,9 +25,9 @@ export const addCourseLecture=createAsyncThunk("/course/lecture/add",async (data
     try {
         const formdata = new FormData();
         formdata.append("lecture",data.lecture);
-        formdata.append("tittle",data.title);
+        formdata.append("title",data.title);
         formdata.append("description",data.description);
-        const response=axiosInstance.post(`/courses/${data.id}`,formdata);
+        const response=axiosInstance.post(`/courses/${data.id}/lectures`,formdata);
         toast.promise(response,{
             loading:"adding course lecture",
             success:"Lecture added successfully",

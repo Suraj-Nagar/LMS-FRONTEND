@@ -8,7 +8,6 @@ function CourseDescription() {
     const { role, data } = useSelector((state) => state.auth);
 
     if (!state) {
-        // Redirect to course list if no state (direct URL entry)
         navigate("/courses");
         return null;
     }
@@ -24,7 +23,7 @@ function CourseDescription() {
                             className="w-full h-64"
                         />
                         <div className="space-y-3">
-                            <div className="flex flex-col items-center justify-center text-xl">
+                              <div className="flex flex-col items-center justify-center text-xl">
 
                                 <p className="font-semibold">
 
