@@ -8,12 +8,8 @@ import { logout } from '../Redux/Slices/AuthSlice';
 
 function HomeLayout({ children }) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    //for checking if user is logged in     
+    const navigate = useNavigate();     
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
-
-    //for displaying the option according to the rule
     const role = useSelector((state) => state?.auth?.role)
 
     function changeWidth() {
