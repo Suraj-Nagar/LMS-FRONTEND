@@ -10,17 +10,17 @@ import Login from './Pages/Login';
 import CourseList from './Pages/Course/CourseLIst';
 import Contact from './Pages/Contact';
 import Denied from './Pages/Denied';
-import CourseDescription from './Pages/Course/CourseDescription';
-import CreateCourse from './Pages/Course/CreateCourse';
+import CourseDescription from './Pages/Course/CourseDescription.jsx';
+import CreateCourse from './Pages/Course/CreateCourse.jsx';
 import RequireAuth from './Components/Auth/RequireAuth';
-import Profile from './Pages/User/Profile';
-import EditProfile from './Pages/User/EditProfile';
+import Profile from './Pages/User/Profile.jsx';
+import EditProfile from './Pages/User/EditProfile.jsx';
 import Checkout from './Pages/Payment/Checkout';
-import CheckoutSuccess from './Pages/Payment/CheckoutSuccess';
-import CheckoutFailure from './Pages/Payment/CheckoutFailure';
-import Displaylectures from './Pages/Dashboard/DisplayLectures';
+import CheckoutSuccess from './Pages/Payment/CheckoutSuccess.jsx';
+import CheckoutFailure from './Pages/Payment/CheckoutFailure.jsx';
+import Displaylectures from './Pages/Dashboard/DisplayLectures.jsx';
 import AddLecture from './Pages/Dashboard/AddLecture.jsx';
-import AdminDashboard from './Pages/Dashboard/AdminDashboard';
+import AdminDashboard from './Pages/Dashboard/AdminDashboard.jsx';
 
 function App() {
   return (
