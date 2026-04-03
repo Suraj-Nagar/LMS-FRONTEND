@@ -19,7 +19,7 @@ import Checkout from './Pages/Payment/Checkout';
 import CheckoutSuccess from './Pages/Payment/CheckoutSuccess';
 import CheckoutFailure from './Pages/Payment/CheckoutFailure';
 import Displaylectures from './Pages/Dashboard/DisplayLectures';
-import AddLecture from './Pages/Dashboard/AddLecture';
+import AddLecture from './Pages/Dashboard/AddLecture.jsx';
 import AdminDashboard from './Pages/Dashboard/AdminDashboard';
 
 function App() {
