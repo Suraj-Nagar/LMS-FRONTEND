@@ -28,7 +28,7 @@ function Checkout() {
         const options = {
             key: razorpayKey,
             subscription_id: subscription_id,
-            name: "coursify Pvt. ltd.",
+            name: "lMS Pvt. ltd.",
             description: "subscription",
             theme: {
                 color: "#F37254"
@@ -81,7 +81,7 @@ function Checkout() {
                             This purchase will allow you to access all available course of our platform for {' '}
                             <span className="text-yellow-500 font-bold">
                                 <br />
-                                rom rom ji
+                                
                             </span> {' '}
                             All the existing and new launched courses will be a also available
                         </p>

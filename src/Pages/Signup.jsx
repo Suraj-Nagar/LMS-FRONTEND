@@ -8,7 +8,7 @@ import { SiEmlakjet } from "react-icons/si";
 import avatar from "daisyui/components/avatar";
 import { createAccount } from "../Redux/Slices/AuthSlice";
 import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
-import { sign } from "chart.js/helpers";
+
 
 function Signup() {
 

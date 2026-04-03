@@ -31,6 +31,10 @@ function HomeLayout({ children }) {
 
     }
 
+    function example(){
+        
+    }
+
    async function handleLogout(e) {
         e.preventDefault();
 

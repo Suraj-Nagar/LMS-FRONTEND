@@ -45,8 +45,7 @@ function Login() {
         formData.append("email", loginData.email);
         formData.append("password", loginData.password);
 
-        //dispatch login action
-        // const response = await dispatch(login(formData));
+       
         const response = await dispatch(login({
             email: loginData.email,
             password: loginData.password
