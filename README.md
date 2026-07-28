@@ -33,6 +33,7 @@ tailwindcss link https://tailwindcss.com/docs/installation/using-vite
 > npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-chartjs-2 chart.js daisyui axios react-hot-toast @tailwind/line-clamp
 ...
 
+ok
 
 
 ### configure auto import sort eslint  
